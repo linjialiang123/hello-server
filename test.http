@@ -1,0 +1,14 @@
+### 1. 测试 GET 请求
+GET http://localhost:8080/api/users/1
+
+### 2. 测试 POST 请求
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "张三",
+  "age": 21
+}
+
+### 3. 测试全局异常拦截
+GET http://localhost:8080/api/users/error
