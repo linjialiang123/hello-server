@@ -13,6 +13,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result<String> handleException(Exception e) {
         log.error("Global error handler caught an exception:", e);
-        return Result.error(ResultCode.ERROR.getCode(), e.getMessage());
+        String errorMsg = e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
+        return Result.error(ResultCode.ERROR.getCode(), errorMsg);
     }
 }
