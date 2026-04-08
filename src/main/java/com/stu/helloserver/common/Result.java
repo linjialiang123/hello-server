@@ -23,6 +23,15 @@ public class Result<T> {
         return result;
     }
 
+    // 静态工厂方法：自定义失败回调
+    public static <T> Result<T> error(Integer code, String msg) {
+        Result<T> result = new Result<>();
+        result.code = code;
+        result.msg = msg;
+        result.data = null;
+        return result;
+    }
+
     // Getter 和 Setter 方法
     public Integer getCode() {
         return code;
