@@ -14,7 +14,14 @@ public interface UserService {
     /**
      * 用户登录
      * @param userDTO 用户信息
-     * @return 登录结果（包含Token）
+     * @return 登录结果(包含Token)
      */
     Result<String> login(UserDTO userDTO);
+
+    /**
+     * 根据ID获取用户
+     * @param id 用户ID
+     * @return 用户信息
+     */
+    Result<String> getUserById(Long id);
 }
