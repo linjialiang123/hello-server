@@ -24,4 +24,12 @@ public interface UserService {
      * @return 用户信息
      */
     Result<String> getUserById(Long id);
+
+    /**
+     * 获取用户分页数据
+     * @param pageNum 页码(从1开始)
+     * @param pageSize 每页显示条数
+     * @return 分页结果(包含records、total、current、pages等)
+     */
+    Result<Object> getUserPage(Integer pageNum, Integer pageSize);
 }

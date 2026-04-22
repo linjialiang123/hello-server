@@ -18,9 +18,11 @@ public class AuthInterceptor implements HandlerInterceptor {
         boolean isLoginUser = "POST".equalsIgnoreCase(method) && "/api/users/login".equals(uri);
         // 规则 C：如果是 GET 请求，且路径以 "/api/users/" 开头，则放行（允许查询用户）
         boolean isQueryUser = "GET".equalsIgnoreCase(method) && uri.startsWith("/api/users/");
+        // 规则 D：如果是 GET 请求，且路径等于 "/api/users/page"，则放行（允许分页查询）
+        boolean isPageQuery = "GET".equalsIgnoreCase(method) && "/api/users/page".equals(uri);
 
         // 只要满足上述任一合法公开规则，直接放行，无需查验 Token
-        if (isCreateUser || isLoginUser || isQueryUser) {
+        if (isCreateUser || isLoginUser || isQueryUser || isPageQuery) {
             return true;
         }
 
